@@ -82,9 +82,13 @@ fount 会在运行时替换为实际的用户名。
 
 ## 三、文件模板
 
-### 3.1 极简模板（默认推荐）
+目录：`templates/default/` — 18 个文件，2 层 prompt。
 
-目录：`templates/minimal/` — 18 个文件，2 层 prompt，零工具依赖。
+如需添加工具（骰子/搜索/定时器等），从 `examples/` 复制对应模块到角色目录即可。
+
+### 3.1 模板结构
+
+目录：`templates/default/` — 18 个文件，2 层 prompt，零工具依赖。
 
 ```
 MyCharacter/
@@ -115,13 +119,9 @@ MyCharacter/
 2. `prompt/role_settings/base_defs.mjs` — 人设
 3. `prompt/role_settings/corpus.mjs` — 对白范例
 
-### 3.2 带工具的完整模板
+### 3.2 添加工具支持
 
-当用户需要工具时，按以下步骤扩展：
-
-**Step 1**：复制极简模板作为基础
-
-**Step 2**：从 `examples/` 目录选择需要的工具模块，复制到 `reply_gener/functions/`
+从 `examples/` 目录选择需要的工具模块，复制到角色目录的 `reply_gener/functions/`。
 
 **Step 3**：将 `examples/reply-with-tools.mjs` 替换 `reply_gener/index.mjs`
 
@@ -365,6 +365,6 @@ node check-todos.mjs [目录路径]
 ## 十、参考资料
 
 - `reference/architecture.md` — GentianAphrodite 完整架构分析
-- `templates/minimal/README.md` — 新手教程（中文）
+- `templates/default/README.md` — 新手教程（中文）
 - [GentianAphrodite 源码](https://github.com/steve02081504/GentianAphrodite) — 完整参考
 - [fount 官方仓库](https://github.com/steve02081504/fount) — fount 运行时

@@ -4,7 +4,7 @@
 // 基于 GentianAphrodite 的 reply_gener/index.mjs 简化而来。
 // 集成了逻辑引擎 + 骰子 + 搜索 + 定时器工具。
 //
-// 替换 templates/minimal/reply_gener/index.mjs 即可获得一个
+// 替换 templates/default/reply_gener/index.mjs 即可获得一个
 // 带完整工具链的角色卡。
 // =============================================================================
 
