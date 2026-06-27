@@ -24,7 +24,7 @@
 function parseDuration(timeStr) {
   const match = timeStr.trim().match(/^(\d+)\s*(s|m|h|d)$/i)
   if (!match) throw new Error(`无法解析时间: ${timeStr}`)
-  const num = parseInt(match[1])
+  const num = parseInt(match[1], 10)
   switch (match[2].toLowerCase()) {
     case 's': return num * 1000
     case 'm': return num * 60 * 1000
@@ -42,21 +42,16 @@ export async function timerHandler(result, args) {
   let processed = false
   const { AddLongTimeLog } = args
 
-  // 从 fount 运行时获取定时器 API
-  // 注意：这需要 fount 环境支持
   const setTimerRegex = /<set-timer>(?<content>[\s\S]*?)<\/set-timer>/gis
-  let match
-
-  while ((match = setTimerRegex.exec(result.content)) !== null) {
+  for (const match of result.content.matchAll(setTimerRegex)) {
     processed = true
     const fullMatch = match[0]
     const timerContent = match.groups.content
 
     const itemRegex = /<item>([\s\S]*?)<\/item>/gis
-    let itemMatch
     const setResults = []
 
-    while ((itemMatch = itemRegex.exec(timerContent)) !== null) {
+    for (const itemMatch of timerContent.matchAll(itemRegex)) {
       const item = itemMatch[1]
       const timeStr = (item.match(/<time>(.*?)<\/time>/is) || [])[1]?.trim()
       const trigger = (item.match(/<trigger>(.*?)<\/trigger>/is) || [])[1]?.trim()
@@ -69,16 +64,14 @@ export async function timerHandler(result, args) {
 
       try {
         const ms = parseDuration(timeStr)
-        // 使用 fount 的定时器系统
         const { setTimer } = await import('../../../../../src/server/timers.mjs')
         setTimer(
           args.username,
-          'chars/' + args.char_id,
+          `chars/${args.char_id}`,
           `timer_${Date.now()}`,
           ms,
-          false, // 不重复
+          false,
           async () => {
-            // 定时器触发时的回调
             const callbackMsg = {
               name: 'system',
               role: 'system',

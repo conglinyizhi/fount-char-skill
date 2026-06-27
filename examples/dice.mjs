@@ -21,9 +21,9 @@ function roll(diceStr) {
   const match = diceStr.trim().match(/^(\d+)?d(\d+)([+-]\d+)?$/i)
   if (!match) throw new Error(`无效的骰子表达式: ${diceStr}`)
 
-  const count = parseInt(match[1] || '1')
-  const sides = parseInt(match[2])
-  const modifier = parseInt(match[3] || '0')
+  const count = parseInt(match[1] || '1', 10)
+  const sides = parseInt(match[2], 10)
+  const modifier = parseInt(match[3] || '0', 10)
 
   if (count < 1 || count > 100) throw new Error('骰子数量应在 1-100 之间')
   if (sides < 2 || sides > 1000) throw new Error('骰子面数应在 2-1000 之间')
@@ -44,11 +44,8 @@ function roll(diceStr) {
 export async function diceRoller(result, args) {
   let processed = false
 
-  // 匹配 <roll-dice>...</roll-dice> 标签
   const diceRegex = /<roll-dice>(?<content>[\s\S]*?)<\/roll-dice>/gis
-  let match
-
-  while ((match = diceRegex.exec(result.content)) !== null) {
+  for (const match of result.content.matchAll(diceRegex)) {
     processed = true
     const fullMatch = match[0]
     const diceExpr = match.groups.content.trim()
@@ -59,7 +56,6 @@ export async function diceRoller(result, args) {
         ? `${rolls.join(' + ')} = ${total}`
         : `${total}`
 
-      // 替换标签为结果
       result.content = result.content.replace(
         fullMatch,
         `🎲 ${expr}: **${rollDetail}**`

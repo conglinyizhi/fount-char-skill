@@ -5,6 +5,8 @@
 // 通常不需要修改这个文件。
 // =============================================================================
 
+import path from 'node:path'
+
 import { loadJsonFile } from '../../../../../../src/scripts/json_loader.mjs'
 
 // ---------------------------------------------------------------------------
@@ -19,8 +21,8 @@ import { loadJsonFile } from '../../../../../../src/scripts/json_loader.mjs'
  */
 export async function UpdateInfo() {
   // 读取所有语言版本的信息
-  const zhCN = (await loadJsonFile(import.meta.dirname + '/../locales/zh-CN.json')).info
-  const enUS = (await loadJsonFile(import.meta.dirname + '/../locales/en-US.json')).info
+  const zhCN = (await loadJsonFile(path.join(import.meta.dirname, '..', 'locales', 'zh-CN.json'))).info
+  const enUS = (await loadJsonFile(path.join(import.meta.dirname, '..', 'locales', 'en-US.json'))).info
 
   // 合并为一个 info 对象，key 是语言标识符
   return {

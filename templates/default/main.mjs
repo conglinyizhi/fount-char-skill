@@ -99,9 +99,9 @@ export default {
     // 2. 加载多语言数据到 fount 运行时
     addPartLocaleData(
       username,
-      'chars/' + charname,
+      `chars/${charname}`,
       ['zh-CN', 'en-US'],
-      (locale) => loadJsonFile(chardir + `/locales/${locale}.json`)
+      (locale) => loadJsonFile(`${chardir}/locales/${locale}.json`)
     )
 
     // TODO: 在这里添加你自己的初始化逻辑：

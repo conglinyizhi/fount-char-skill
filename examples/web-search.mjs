@@ -13,14 +13,12 @@
  * @returns {Promise<{title: string, snippet: string, url: string}[]>}
  */
 async function searchWeb(query) {
-  // 使用 DuckDuckGo 的简易搜索（无需 API Key）
   try {
     const url = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_html=1&skip_disambig=1`
     const response = await fetch(url)
     const data = await response.json()
 
     const results = []
-    // RelatedTopics 中的结果
     for (const topic of (data.RelatedTopics || []).slice(0, 5)) {
       if (topic.Text && topic.FirstURL) {
         results.push({
@@ -44,9 +42,8 @@ async function searchWeb(query) {
 export async function webSearchHandler(result, args) {
   let processed = false
   const searchRegex = /<web-search>(?<content>[\s\S]*?)<\/web-search>/gis
-  let match
 
-  while ((match = searchRegex.exec(result.content)) !== null) {
+  for (const match of result.content.matchAll(searchRegex)) {
     processed = true
     const fullMatch = match[0]
     const query = match.groups.content.trim()
