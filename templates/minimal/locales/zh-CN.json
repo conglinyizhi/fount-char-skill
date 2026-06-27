@@ -1,0 +1,15 @@
+{
+  "info": {
+    "zh-CN": {
+      "name": "// TODO: 角色名",
+      "avatar": "/parts/chars:MyCharacter/avatar.png",
+      "description": "// TODO: 一句话描述你的角色",
+      "description_markdown": "// TODO: Markdown 格式的详细描述",
+      "version": "1.0.0",
+      "author": "// TODO: 你的名字",
+      "home_page": "",
+      "issue_page": "",
+      "tags": ["// TODO: 标签1", "// TODO: 标签2"]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "chars",
+  "dirname": "MyCharacter",
+  "data_files": [
+    "memory",
+    "vars"
+  ]
+}

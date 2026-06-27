@@ -1,0 +1,15 @@
+{
+  "info": {
+    "en-US": {
+      "name": "// TODO: Character Name",
+      "avatar": "/parts/chars:MyCharacter/avatar.png",
+      "description": "// TODO: A one-line description",
+      "description_markdown": "// TODO: Detailed markdown description",
+      "version": "1.0.0",
+      "author": "// TODO: Your Name",
+      "home_page": "",
+      "issue_page": "",
+      "tags": ["// TODO: tag1", "// TODO: tag2"]
+    }
+  }
+}
