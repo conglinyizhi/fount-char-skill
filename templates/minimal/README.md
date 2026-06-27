@@ -24,22 +24,15 @@
 
 ## 快速开始
 
-### 前置条件
+### 方式一：AI 交互式创建（推荐）
 
-1. 已安装 [fount](https://github.com/steve02081504/fount)
-2. fount 中已配置好 AI 源（API Key）
+如果你的 AI 助手支持提问功能，直接告诉它「帮我创建一个 fount 角色」，AI 会逐步引导你完成。
 
-### 安装模板
+### 方式二：手动填写
 
-在 fount 中，直接拖拽这个目录到 fount 窗口即可安装。或者使用 fount 协议链接：
+**前置条件**：已安装 [fount](https://github.com/steve02081504/fount) 并配置好 AI 源。
 
-```
-fount://run/shells/install/template;<你的模板.zip下载链接>
-```
-
-### 首次对话
-
-安装后，在 fount 中切换到你的角色，发送一条消息即可开始对话。
+1. 用 fount 安装本模板（拖拽目录到 fount 窗口即可）
 
 ---
 
