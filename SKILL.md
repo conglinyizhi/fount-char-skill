@@ -1,15 +1,16 @@
 ---
 name: fount-char
 description: >-
-  fount 角色卡创建助手。提供从极简到完整的角色卡模板、常用工具范例（骰子/搜索/定时器/记忆/逻辑引擎），
-  以及架构参考文档。Activates when: 用户要求创建/修改 fount 角色卡、为 fount 角色添加工具、
+  fount 角色卡创建助手。提供从极简到完整的角色卡模板、常用工具范例（骰子/搜索/定时器/记忆/逻辑引擎）、
+  架构参考文档，以及交互式角色创建向导（结构化问卷 + 创意总监风格引导）。Activates when:
+  用户要求创建/修改 fount 角色卡、为 fount 角色添加工具、
   解释 fount 角色卡的工作方式、设计新角色的 prompt 架构、调试角色回复问题。
   Keywords: fount, 角色卡, 创建角色, character card, prompt 构建, 角色人设,
   对白范例, 语料库, 工具系统, dice, 骰子, 搜索, 定时器, 记忆系统, 逻辑引擎,
   GentianAphrodite, 龙胆, corpus, base_defs, role_settings, main.mjs,
-  fount.json, reply_gener, buildPrompt, ReplyHandler.
+  fount.json, reply_gener, buildPrompt, ReplyHandler, 交互式创建, 角色向导.
   Not for: fount 安装/配置问题、API 配置、非 fount 平台的 prompt engineering。
-license: MIT
+license: Apache-2.0
 ---
 
 # fount-char · fount 角色卡创建助手
