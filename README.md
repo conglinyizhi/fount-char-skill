@@ -1,6 +1,6 @@
 # fount-char-skill
 
-> fount 角色卡创建助手 — 从零到部署，一条龙。
+> [fount](https://github.com/steve02081504/fount) 角色卡创建助手 — 从零到部署，一条[龙](https://github.com/steve02081504/GentianAphrodite)。
 
 一份模板、一套工具范例、一个交互式创建向导。让 AI 帮你写 fount 角色卡，也让 AI 知道怎么写 fount 角色卡。
 
